@@ -543,28 +543,6 @@
 
             document.body.appendChild(popup);
 
-            // Remove popup after 4 seconds
-            setTimeout(() => {
-                popup.classList.add('slide-out');
-                setTimeout(() => {
-                    if (popup.parentNode) {
-                        popup.parentNode.removeChild(popup);
-                    }
-                }, 700);
-            }, 4000);
-        }
-
-        function showNextTestimonial() {
-            const testimonial = testimonials[currentTestimonialIndex];
-            createTestimonialPopup(testimonial);
-            
-            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-            
-            // Schedule next testimonial (random interval between 3-7 seconds)
-            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
-            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
-        }
-
         // Meta Pixel conversion tracking function
         function trackConversion() {
             const conversionProps = {
